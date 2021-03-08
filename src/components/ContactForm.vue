@@ -7,7 +7,7 @@
       <v-text-field type="number" outlined label="Phone" v-model="form.phone" />
 <v-select outlined label="Phone Type" :items="phoneTypeOptions"  v-model="form.type" />
       <v-text-field outlined label="Email" v-model="form.email" />
-      <v-btn type="submit" color="green">Submit</v-btn>
+      <v-btn type="submit" color="green" dark>Submit</v-btn>
     </v-form>
   </div>
 </template>
@@ -28,7 +28,14 @@ export default {
   },
   methods: {
       handleSubmit()  {
-          console.log(this.form);
+          this.$emit("contact-submit", this.form);
+          this.form = {
+            firstName: "",
+            lastName: "",
+            phone: "",
+            type: "",
+            email: "",  
+          }
       }
   }
 };
