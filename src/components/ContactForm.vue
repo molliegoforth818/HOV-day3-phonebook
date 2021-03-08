@@ -1,18 +1,37 @@
 <template>
   <div>
-      <h2>New Contact</h2>
-      <v-form>
-          
-      </v-form>
+    <h2>New Contact</h2>
+    <v-form @submit.prevent="handleSubmit">
+      <v-text-field outlined label="First Name" v-model="form.firstName" />
+      <v-text-field outlined label="Last Name" v-model="form.lastName" />
+      <v-text-field type="number" outlined label="Phone" v-model="form.phone" />
+<v-select outlined label="Phone Type" :items="phoneTypeOptions"  v-model="form.type" />
+      <v-text-field outlined label="Email" v-model="form.email" />
+      <v-btn type="submit" color="green">Submit</v-btn>
+    </v-form>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      form: {
+        firstName: "",
+        lastName: "",
+        phone: "",
+        type: "",
+        email: "",
+      },
+      phoneTypeOptions: ["Home","Cell", "Office"]
+    };
+  },
+  methods: {
+      handleSubmit()  {
+          console.log(this.form);
+      }
+  }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
