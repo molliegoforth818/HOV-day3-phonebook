@@ -30,7 +30,7 @@ export default {
               val => val.length < 25 || "First name must be less than 25 characters"
           ],
           lastName:[
-              val => val.lastName < 25 || "Last name must be less than 25 characters"
+              val => val.length < 25 || "Last name must be less than 25 characters"
           ],
           phone: [
               val => !!val || "Phone number is requred",
